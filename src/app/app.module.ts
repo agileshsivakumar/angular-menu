@@ -1,16 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
+import { TreeModule } from 'angular-tree-component';
 import { AppComponent } from './app.component';
+import { AuthenticationGuard } from './authentication.guard';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserService } from './user.service';
-import { AuthenticationGuard } from './authentication.guard';
-import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
-import { TreeModule } from 'angular-tree-component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import { UserService } from './user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -31,7 +32,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserModule,
     FormsModule,
-    TreeModule
+    TreeModule,
+    HttpClientModule
   ],
   providers: [UserService, AuthenticationGuard],
   bootstrap: [AppComponent]

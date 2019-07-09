@@ -13,6 +13,7 @@ export class LoginComponent {
   constructor(public userService: UserService, private router: Router) {}
 
   singIn() {
+    this.userService.authenticateUser('Agilesh', 'admin');
     if (this.userName === 'admin' && this.password === 'admin') {
       this.userService.setUserDetails(this.userName);
       this.router.navigate(['dashboard']);
